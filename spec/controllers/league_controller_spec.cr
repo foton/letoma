@@ -1,12 +1,18 @@
 require "./spec_helper"
 
 def league_hash
-  {"name" => "Fake"}
+  {"name" => "Fake League"}
 end
 
-def league_params
+def league_params_str
+  build_params_string_from(league_hash)
+end
+
+def build_params_string_from(hash)
   params = [] of String
-  params << "name=#{league_hash["name"]}"
+  hash.each do |k,v|
+    params << "#{k}=#{v}"
+  end
   params.join("&")
 end
 
@@ -35,10 +41,13 @@ describe LeagueControllerTest do
 
   it "renders league index template" do
     League.clear
+    model = create_league
+
     response = subject.get "/leagues"
 
     response.status_code.should eq(200)
     response.body.should contain("leagues")
+    response.body.should contain(model.name.to_s)
   end
 
   it "renders league show template" do
@@ -50,6 +59,7 @@ describe LeagueControllerTest do
 
     response.status_code.should eq(200)
     response.body.should contain("Show League")
+    response.body.should contain(model.name.to_s)
   end
 
   it "renders league new template" do
@@ -71,25 +81,34 @@ describe LeagueControllerTest do
 
     response.status_code.should eq(200)
     response.body.should contain("Edit League")
+    response.body.should contain(model.name.to_s)
   end
 
   it "creates a league" do
     League.clear
-    response = subject.post "/leagues", body: league_params
+    response = subject.post "/leagues", body: league_params_str
 
     response.headers["Location"].should eq "/leagues"
     response.status_code.should eq(302)
     response.body.should eq "302"
+    # TODO test redirection to new league
+    # find league by name
   end
 
   it "updates a league" do
     League.clear
     model = create_league
+    new_name = "Second league"
+    league_params = build_params_string_from(league_hash.merge({ "name" => new_name}))
+
     response = subject.patch "/leagues/#{model.id}", body: league_params
 
     response.headers["Location"].should eq "/leagues"
     response.status_code.should eq(302)
     response.body.should eq "302"
+
+    puts("League.all: #{League.all.to_json}")
+    League.find!(model.id).name.should eq(new_name)
   end
 
   it "deletes a league" do
@@ -100,5 +119,7 @@ describe LeagueControllerTest do
     response.headers["Location"].should eq "/leagues"
     response.status_code.should eq(302)
     response.body.should eq "302"
+
+    League.find(model.id).should be_nil
   end
 end
