@@ -23,7 +23,8 @@ class TournamentController < ApplicationController
   end
 
   def create
-    tournament = Tournament.new tournament_params.validate!
+    tournament = Tournament.new
+    update_attributes(tournament)
     if tournament.save
       redirect_to action: :index, flash: {"success" => "Tournament has been created."}
     else
@@ -33,7 +34,7 @@ class TournamentController < ApplicationController
   end
 
   def update
-    tournament.set_attributes tournament_params.validate!
+    update_attributes(tournament)
     if tournament.save
       redirect_to action: :index, flash: {"success" => "Tournament has been updated."}
     else
@@ -58,5 +59,12 @@ class TournamentController < ApplicationController
 
   private def set_tournament
     @tournament = Tournament.find! params[:id]
+  end
+
+  private def update_attributes(tournament)
+    h = tournament_params.validate!
+    tournament.start_date = Date.parse(h.delete("start_date").to_s)
+    tournament.end_date = Date.parse(h.delete("end_date").to_s)
+    tournament.set_attributes h
   end
 end

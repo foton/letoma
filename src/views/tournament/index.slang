@@ -5,10 +5,14 @@
   .col-sm-1
     a.btn.btn-success.btn-sm href="/tournaments/new" New
 .table-responsive
+  p = ::I18n.config.locale
+
   table.table.table-striped
     thead
       tr
         th Name
+        th Start_date
+        th End_date
         th Start_date
         th End_date
         th League
@@ -17,8 +21,10 @@
       - tournaments.each do |tournament|
         tr
           td = tournament.name
-          td = l tournament.start_date
-          td = l tournament.end_date
+          td = ::I18n.localize(tournament.start_date.to_time, scope: :date, format: :default)
+          td = ::I18n.localize(tournament.end_date.to_time, scope: :date, format: :default)
+          td = l(tournament.start_date.to_time)
+          td = l(tournament.end_date.to_time)
           td = tournament.league.name
           td
             span

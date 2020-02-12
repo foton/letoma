@@ -5,7 +5,10 @@ def league
 end
 
 def tournament_hash
-  { "name" => "Fake", "start_date" => "Fake", "end_date" => "Fake", "league_id" => league.id }
+  { "name" => "Fake",
+    "start_date" => Date.new(2019, 12, 28).to_s,
+    "end_date" => Date.new(2019, 12,28).to_s,
+    "league_id" => league.id }
 end
 
 def tournament_params
@@ -17,8 +20,12 @@ def tournament_params
   params.join("&")
 end
 
-def create_tournament(t_hash = tournament_hash)
-  model = Tournament.new(t_hash)
+def create_tournament(h = tournament_hash)
+  model = Tournament.new
+  model.start_date = Date.parse(h.delete("start_date").to_s)
+  model.end_date = Date.parse(h.delete("end_date").to_s)
+  model.set_attributes h
+
   model.save!
   model
 end
@@ -107,9 +114,9 @@ describe TournamentControllerTest do
     model = create_tournament
     response = subject.delete "/tournaments/#{model.id}"
 
-    puts("response.headers: #{response.headers}")
-    puts("response.body: #{response.body}")
-    puts("response.status_code: #{response.status_code}")
+    # puts("response.headers: #{response.headers}")
+    # puts("response.body: #{response.body}")
+    # puts("response.status_code: #{response.status_code}")
     response.headers["Location"].should eq "/tournaments"
     response.status_code.should eq(302)
     response.body.should eq "302"
