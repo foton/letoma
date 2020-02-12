@@ -1,5 +1,5 @@
-- if league.errors
-  ul.errors
+- unless league.errors.empty?
+  ul.errors.alert.alert-danger
     - league.errors.each do |error|
       li = error.to_s
 

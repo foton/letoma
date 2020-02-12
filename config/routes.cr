@@ -31,6 +31,8 @@ Amber::Server.configure do
     get "/", HomeController, :index
 
     resources "leagues", LeagueController
+
+    resources "tournaments", TournamentController
   end
 
   routes :api do

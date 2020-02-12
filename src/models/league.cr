@@ -2,11 +2,14 @@ class League < Granite::Base
   connection sqlite
   table leagues
 
+  has_many :tournaments
+
   column id : Int64, primary: true
   column name : String?
 
-  validate(:name, "Cannot be blank", ->(x : self) { !x.name.to_s.blank? })
-  # validate :name, "cannot be blank" do |this|
-  #   !this.name.blank?
-  # end
+  validate_min_length :name, 3
+
+  def to_s
+    name.to_s
+  end
 end

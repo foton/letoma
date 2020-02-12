@@ -17,9 +17,7 @@ def build_params_string_from(hash)
 end
 
 def create_league
-  model = League.new(league_hash)
-  model.save
-  model
+  League.create(league_hash)
 end
 
 class LeagueControllerTest < GarnetSpec::Controller::Test
