@@ -1,5 +1,4 @@
-h1 Show League
-p = league.name
+h1 = t("league.one") + ": " + league.name
 p
   == link_to("Back", "/leagues", class: "btn btn-light btn-sm")
   == link_to("Edit", "/leagues/#{league.id}/edit", class: "btn btn-success btn-sm")

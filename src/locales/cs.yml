@@ -1,8 +1,21 @@
 ---
 welcome_to_amber: "No nazdar, zkoušíte Amber?"
+league:
+  one: Liga
+  other: Ligy
+  views:
+    new:
+      header: Nová liga
+    edit:
+      header: Editace ligy
 tournament:
   one: Turnaj
   other: Turnaje
+  views:
+    new:
+      header: Nový turnaj
+    edit:
+      header: Editace turnaje
 
   # CS defaults grabbed from https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/cs.yml
 __formats__:

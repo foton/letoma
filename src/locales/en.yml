@@ -1,2 +1,20 @@
 ---
 welcome_to_amber: "Welcome to Amber Framework!"
+tournament:
+  one: Turnaj
+  other: Turnaje
+
+  # CS defaults grabbed from https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/cs.yml
+__formats__:
+  time:
+    am: dopoledne
+    pm: odpoledne
+    formats:
+      default: "%a %e. %B %Y %H:%M %z"
+      long: "%A %e. %B %Y %H:%M"
+      short: "%e. %-m. %H:%M"
+  date:
+    formats:
+      default: "%d. %m. %Y"
+      long: "%d. %B %Y"
+      short: "%d %b"

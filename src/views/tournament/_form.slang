@@ -13,6 +13,6 @@
     == text_field(name: "end_date", value: tournament.end_date.to_s, placeholder: "End_date", class: "form-control")
   .form-group
     == label(:league)
-    == select_field(name: "league_id", collection: League.all.map{|league| [league.id, league.name]}, selected: tournament.league_id, class: "form-control")
+    == select_field(name: "league_id", collection: League.all.map{|league| [league.id, league.name]}, selected: tournament.league_id, class: "form-control col-sm-10")
   == submit("Submit", class: "btn btn-success btn-sm")
   == link_to("Back", "/tournaments", class: "btn btn-light btn-sm")

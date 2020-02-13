@@ -5,7 +5,7 @@ class League < Granite::Base
   has_many :tournaments
 
   column id : Int64, primary: true
-  column name : String?
+  column name : String = ""
 
   validate_min_length :name, 3
 
