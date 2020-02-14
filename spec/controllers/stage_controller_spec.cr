@@ -52,7 +52,7 @@ describe StageControllerTest do
     response = subject.get location
 
     response.status_code.should eq(200)
-    response.body.should contain("Show Stage")
+    response.body.should contain(model.medium_name)
   end
 
   it "renders stage new template" do

@@ -4,6 +4,7 @@ class Tournament < Granite::Base
 
   belongs_to :league
   has_many :participations, class_name: Participation
+  has_many :stages, class_name: Stage
 
   column id : Int64, primary: true
   column name : String = ""

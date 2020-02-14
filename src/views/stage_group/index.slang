@@ -13,7 +13,7 @@
     tbody
       - stage_groups.each do |stage_group|
         tr
-          td = stage_group.stage.id
+          td = stage_group.stage.full_name
           td = stage_group.name
           td
             span

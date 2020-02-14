@@ -50,7 +50,7 @@ describe StageGroupControllerTest do
     response = subject.get location
 
     response.status_code.should eq(200)
-    response.body.should contain("Show Stage Group")
+    response.body.should contain(model.stage.full_name + " - " + model.name)
   end
 
   it "renders stage_group new template" do
