@@ -11,4 +11,8 @@ class Participation < Granite::Base
   def self.for_tournament_and_subleague(tournament, subleague)
     self.where(tournament_id: tournament.id, subleague_id: subleague.id)
   end
+
+  def name
+    player.name
+  end
 end

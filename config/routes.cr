@@ -43,6 +43,8 @@ Amber::Server.configure do
     resources "stages", StageController
 
     resources "stage_groups", StageGroupController
+
+    resources "games", GameController
   end
 
   routes :api do
