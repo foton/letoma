@@ -8,6 +8,14 @@ league:
       header: Nová liga
     edit:
       header: Editace ligy
+subleague:
+  one: Kategorie ligy
+  other: Kategorie ligy
+  views:
+    new:
+      header: Nová kategorie ligy
+    edit:
+      header: Editace kategorie ligy
 tournament:
   one: Turnaj
   other: Turnaje

@@ -56,8 +56,7 @@ describe LeagueControllerTest do
     response = subject.get location
 
     response.status_code.should eq(200)
-    response.body.should contain("Show League")
-    response.body.should contain(model.name.to_s)
+    response.body.should contain("League: #{model.name}")
   end
 
   it "renders league new template" do
@@ -78,8 +77,7 @@ describe LeagueControllerTest do
     response = subject.get location
 
     response.status_code.should eq(200)
-    response.body.should contain("Edit League")
-    response.body.should contain(model.name.to_s)
+    response.body.should contain("Edit League #{model.name}")
   end
 
   it "creates a league" do

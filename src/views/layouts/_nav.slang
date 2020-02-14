@@ -7,3 +7,9 @@ li.nav-item class=active
 - active = context.request.path == "/tournaments" ? "active" : ""
 li.nav-item class=active
   a class="nav-link" href="/tournaments" Tournaments
+- active = context.request.path == "/subleagues" ? "active" : ""
+li.nav-item class=active
+  a class="nav-link" href="/subleagues" Subleagues
+- active = context.request.path == "/players" ? "active" : ""
+li.nav-item class=active
+  a class="nav-link" href="/players" Players

@@ -23,7 +23,7 @@ describe Tournament do
     (valid_tournament.valid?).should be_true
   end
 
-  it "needs name at leats 3 chars long" do
+  it "needs name at least 3 chars long" do
     instance = valid_tournament
 
     instance.name =""

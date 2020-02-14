@@ -1,14 +1,34 @@
 ---
 welcome_to_amber: "Welcome to Amber Framework!"
+league:
+  one: League
+  other: Leagues
+  views:
+    new:
+      header: New League
+    edit:
+      header: Edit League
+subleague:
+  one: Subleague
+  other: Subleagues
+  views:
+    new:
+      header: New Subleague
+    edit:
+      header: Edit Subleague
 tournament:
-  one: Turnaj
-  other: Turnaje
+  one: Tournament
+  other: Tournaments
+  views:
+    new:
+      header: New Tournament
+    edit:
+      header: Edit Tournament
 
-  # CS defaults grabbed from https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/cs.yml
 __formats__:
   time:
-    am: dopoledne
-    pm: odpoledne
+    am: am
+    pm: pm
     formats:
       default: "%a %e. %B %Y %H:%M %z"
       long: "%A %e. %B %Y %H:%M"
@@ -16,5 +36,5 @@ __formats__:
   date:
     formats:
       default: "%d. %m. %Y"
-      long: "%d. %B %Y"
+      long: "%B %d %Y"
       short: "%d %b"

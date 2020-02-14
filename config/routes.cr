@@ -33,6 +33,10 @@ Amber::Server.configure do
     resources "leagues", LeagueController
 
     resources "tournaments", TournamentController
+
+    resources "subleagues", SubleagueController
+
+    resources "players", PlayerController
   end
 
   routes :api do

@@ -55,6 +55,8 @@ describe TournamentControllerTest do
 
     response.status_code.should eq(200)
     response.body.should contain("tournaments")
+    response.body.should contain("#{model1.name}")
+    response.body.should contain("#{model2.name}")
   end
 
   it "renders tournament show template" do
@@ -65,7 +67,7 @@ describe TournamentControllerTest do
     response = subject.get location
 
     response.status_code.should eq(200)
-    response.body.should contain(model.name.to_s)
+    response.body.should contain("Tournament: #{model.name}")
     response.body.should contain(model.league.name.to_s)
   end
 
@@ -87,7 +89,7 @@ describe TournamentControllerTest do
     response = subject.get location
 
     response.status_code.should eq(200)
-    response.body.should contain("Edit Tournament")
+    response.body.should contain("Edit Tournament #{model.name}")
   end
 
   it "creates a tournament" do
