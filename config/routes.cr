@@ -37,6 +37,8 @@ Amber::Server.configure do
     resources "subleagues", SubleagueController
 
     resources "players", PlayerController
+
+    resources "participations", ParticipationController
   end
 
   routes :api do

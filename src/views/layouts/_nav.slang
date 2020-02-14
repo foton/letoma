@@ -13,3 +13,6 @@ li.nav-item class=active
 - active = context.request.path == "/players" ? "active" : ""
 li.nav-item class=active
   a class="nav-link" href="/players" Players
+- active = context.request.path == "/participations" ? "active" : ""
+li.nav-item class=active
+  a class="nav-link" href="/participations" Participations
