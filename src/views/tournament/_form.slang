@@ -15,4 +15,4 @@
     == label(:league)
     == select_field(name: "league_id", collection: League.all.map{|league| [league.id, league.name]}, selected: tournament.league_id, class: "form-control col-sm-10")
   == submit("Submit", class: "btn btn-success btn-sm")
-  == link_to("Back", "/tournaments", class: "btn btn-light btn-sm")
+

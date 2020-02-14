@@ -9,6 +9,6 @@
     == text_field(name: "name", value: subleague.name, placeholder: "Name", class: "form-control")
   .form-group
     == label(:league)
-    == select_field(name: "league_id", collection: League.all.map{|league| [league.id, league.id]}, selected: subleague.league_id, class: "form-control")
+    == select_field(name: "league_id", collection: League.all.map{|league| [league.id, league.name]}, selected: subleague.league_id, class: "form-control col-sm-10")
   == submit("Submit", class: "btn btn-success btn-sm")
-  == link_to("Back", "/subleagues", class: "btn btn-light btn-sm")
+

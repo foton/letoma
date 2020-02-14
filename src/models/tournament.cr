@@ -3,6 +3,7 @@ class Tournament < Granite::Base
   table tournaments
 
   belongs_to :league
+  has_many :participations, class_name: Participation
 
   column id : Int64, primary: true
   column name : String = ""

@@ -3,6 +3,7 @@ class Subleague < Granite::Base
   table subleagues
 
   belongs_to :league
+  has_many :participations, class_name: Participation
 
   column id : Int64, primary: true
   column name : String = ""

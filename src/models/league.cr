@@ -2,7 +2,7 @@ class League < Granite::Base
   connection sqlite
   table leagues
 
-  has_many :subleagues # league for players category
+  has_many :subleagues, class_name: Subleague # league for players category
   has_many :tournaments
 
 

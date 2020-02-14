@@ -8,4 +8,4 @@
   .form-group
     == text_field(name: "name", value: league.name, placeholder: "Name", class: "form-control")
   == submit("Submit", class: "btn btn-success btn-sm")
-  == link_to("Back", "/leagues", class: "btn btn-light btn-sm")
+

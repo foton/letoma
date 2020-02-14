@@ -14,7 +14,7 @@
       - subleagues.each do |subleague|
         tr
           td = subleague.name
-          td = subleague.league.id
+          td = subleague.league.name
           td
             span
               == link_to("Show", "/subleagues/#{subleague.id}", class: "btn btn-info btn-sm")

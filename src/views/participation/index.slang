@@ -14,9 +14,9 @@
     tbody
       - participations.each do |participation|
         tr
-          td = participation.tournament.id
-          td = participation.subleague.id
-          td = participation.player.id
+          td = participation.tournament.name
+          td = participation.subleague.name
+          td = participation.player.name
           td
             span
               == link_to("Show", "/participations/#{participation.id}", class: "btn btn-info btn-sm")
