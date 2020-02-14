@@ -19,3 +19,6 @@ li.nav-item class=active
 - active = context.request.path == "/stages" ? "active" : ""
 li.nav-item class=active
   a class="nav-link" href="/stages" Stages
+- active = context.request.path == "/stage_groups" ? "active" : ""
+li.nav-item class=active
+  a class="nav-link" href="/stage_groups" Stage Groups

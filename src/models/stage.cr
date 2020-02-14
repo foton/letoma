@@ -10,6 +10,7 @@ class Stage < Granite::Base
 
   belongs_to :tournament
   belongs_to :subleague
+  has_many stage_groups, calss_name: StageGroup
 
   column id : Int64, primary: true
   column kind : String = ""

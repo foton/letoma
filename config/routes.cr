@@ -41,6 +41,8 @@ Amber::Server.configure do
     resources "participations", ParticipationController
 
     resources "stages", StageController
+
+    resources "stage_groups", StageGroupController
   end
 
   routes :api do
